@@ -1,0 +1,49 @@
+<mvc:View xmlns:vbm="sap.ui.vbm" xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="com.employeeapi.controller.View1">
+    
+    <Page title="Employee Management">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <!-- Table for Employee Data -->
+                <Table id="employeeTable" items="{/}">
+                    <columns>
+                        <Column>
+                            <Text text="ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Position" />
+                        </Column>
+                        <Column>
+                            <Text text="Actions" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{id}" />
+                                <Text text="{name}" />
+                                <Text text="{position}" />
+                                <HBox class="customHBox">
+                                <Button text="Edit" press="onEdit"  />
+                                <Button text="Delete" press="onDelete" />
+                                </HBox>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+                   
+            </VBox>
+            <form:SimpleForm >
+                        <Input id="name" placeholder="Name" />
+                        <Input id="position" placeholder="Position" />
+                        <Button text="Save" press="onSave" />
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>
